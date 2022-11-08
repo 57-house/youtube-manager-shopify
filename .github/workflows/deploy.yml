@@ -19,6 +19,6 @@ jobs:
         password: ${{ secrets.CDI_PASSWORD }}
         exclude: |
           **/.git*
-          **/.git*/**
+          **/.git*/** 
           **/node_modules/**
           **/vendor/**
