@@ -37,7 +37,7 @@ Route::get('/login', function (Request $request) {
 
     return Redirect::to(Shopify\Auth\OAuth::begin(
         "youtube-manager.myshopify.com",
-        route("callback"),
+        "/callback",
         true,
     ));
 
