@@ -45,6 +45,7 @@ Route::get('/login', function (Request $request) {
 
 
 Route::get('/callback', function (Request $request) {
-    // Shopify\Auth\OAuth::callback();
-    dd($_GET);
+    dd(Shopify\Auth\OAuth::callback([
+        "cookie" => $_GET["shop"],
+    ], $_GET));
 })->name("callback");
