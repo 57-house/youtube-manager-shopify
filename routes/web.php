@@ -36,7 +36,7 @@ Route::get('/login', function (Request $request) {
     );
 
 
-    setcookie("cookie", md5("youtube-manager.myshopify.com"));
+    setcookie("sessionid", md5("youtube-manager.myshopify.com"));
     return Redirect::to(Shopify\Auth\OAuth::begin(
         "youtube-manager.myshopify.com",
         "/callback",
@@ -60,6 +60,6 @@ Route::get('/callback', function (Request $request) {
     );
 
     dd(Shopify\Auth\OAuth::callback([
-        "cookie" => md5($_GET["shop"]),
+        "sessionid" => md5($_GET["shop"]),
     ], $_GET));
 })->name("callback");
