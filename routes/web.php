@@ -24,6 +24,8 @@ Route::get('/', function () {
 
 Route::get('/login', function (Request $request) {
 
+    dd(new FileSessionStorage(base_path() . '/tmp/php_sessions'));
+
     Shopify\Context::initialize(
         "1c9726d70aba1c6838b71222733b0889",
         "b86c924cbaa3e22f904eeaf4d4075d5b",
@@ -48,6 +50,8 @@ Route::get('/login', function (Request $request) {
 
 Route::get('/callback', function (Request $request) {
 
+    dd(new FileSessionStorage(base_path() . '/tmp/php_sessions'));
+    
     Shopify\Context::initialize(
         "1c9726d70aba1c6838b71222733b0889",
         "b86c924cbaa3e22f904eeaf4d4075d5b",
@@ -62,4 +66,5 @@ Route::get('/callback', function (Request $request) {
     dd(Shopify\Auth\OAuth::callback([
         "sessionid" => md5($_GET["shop"]),
     ], $_GET));
+
 })->name("callback");
