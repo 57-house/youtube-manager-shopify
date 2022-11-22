@@ -50,7 +50,7 @@ Route::get('/login', function (Request $request) {
 
 Route::get('/callback', function (Request $request) {
 
-    dd(SessionStorage::loadSession(base_path() . '/tmp/php_sessions'));
+    dd(\SessionStorage::loadSession(base_path() . '/tmp/php_sessions'));
 
     Shopify\Context::initialize(
         "1c9726d70aba1c6838b71222733b0889",
